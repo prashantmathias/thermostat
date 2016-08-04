@@ -1,6 +1,31 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
 
+  // function displayWeather(city) {
+  //   var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+  //   var token = '&appid=07aa6b07981215d47a8f48a9b46c37cc';
+  //   var units = '&units=metric';
+  //   $.get(url + token + units, function(data) {
+  //     $('#current_temperature').text(data.main.temp);
+  //   })
+  // };
+
+  // displayWeather('London');
+
+  // $('#select-city').submit(function(event){
+  //   event.preventDefault();
+  //   var city = $('#current-city').val();
+  //   displayWeather(city);
+  // })
+
+  $('#select-city').submit(function(event) {
+  event.preventDefault();
+  var city = $('#current-city').val();
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=07aa6b07981215d47a8f48a9b46c37cc&units=metric', function(data) {
+    $('#current-temperature').text(data.main.temp);
+  })
+})
+
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage());
