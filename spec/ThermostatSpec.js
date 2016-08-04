@@ -48,6 +48,14 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSavingModeOn()).toBe(true)
   });
 
+  it('can be reset to the default temperature', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.increaseTemperature();
+    }
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
   describe('when PSM is on', function() {
     it('has a max temperature of 25 degrees', function() {
       for (var i = 0; i < 6; i++) {
