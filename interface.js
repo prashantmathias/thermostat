@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
+  // get request to sinatra server get city and temp
 
   $('#select-city').submit(function(event) {
     event.preventDefault();
@@ -12,10 +13,10 @@ $(document).ready(function() {
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage());
+    // post city and temp to sinatra server
   };
 
   updateTemperature();
-
 
   $('#increase-temperature').click(function() {
     thermostat.increaseTemperature();
