@@ -6,7 +6,7 @@ $(document).ready(function() {
     var city = $('#current-city').val();
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=07aa6b07981215d47a8f48a9b46c37cc&units=metric', function(data) {
       $('#current-temperature').text(data.main.temp);
-      })
+    })
   })
 
   function updateTemperature() {

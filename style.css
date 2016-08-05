@@ -9,3 +9,25 @@
 .high-usage {
   color: red;
 }
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.initial {
+  -webkit-flex: initial;
+          flex: initial;
+  width: 100px;
+  min-width: 50px;
+}
+
+.current-temp {
+  -webkit-flex: 1;
+          flex: 1;
+}
+
+.controls {
+  -webkit-flex: 2;
+          flex: 2;
+}
